@@ -1,5 +1,10 @@
 function Spinal(baseURL)
 {
+    if(baseURL == null)
+    {
+        baseURL = 'http://127.0.0.1:5000';
+    }
+
     this.baseURL     =  baseURL;
     this.get         =  function(keys, callback)
                         {
