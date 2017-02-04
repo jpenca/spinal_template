@@ -2,7 +2,7 @@ function Spinal(baseURL)
 {
     if(baseURL == null)
     {
-        baseURL = 'http://127.0.0.1:5000';
+        baseURL = 'http://localhost:5000';
         console.log('no url given, using default: ' + baseURL);
     }
 
