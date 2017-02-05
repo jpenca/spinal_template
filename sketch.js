@@ -1,22 +1,30 @@
-var spinal = new Spinal();
 
-function kitLoopBack(callback)
-{
-	var key = 'kit.x';
-	spinal.get(key, function(r)
-	{
-		var kit = r[key];
+var s = new Spinal('http://Jakobs-MacBook-Air.local:5000/');
 
-		/* kit is now a fully parsed object. change things and send it back! */
+s.get ( 
 
-		spinal.post(kit, function(r)
-		{
-			callback();
-		});
-	});
-}
+	'kit.x', 
+	
+	function(res) {
+		// var kit = r['kit.x'];
+		console.log('get success!' + res);
+		console.log(res);
 
-kitLoopBack(function()
-{
-	console.log('done!');
-});
+		
+		s.post(res['kit.x'], 
+			function(res) {
+				console.log('post success! ' + res);
+			}),
+			function(err) {
+				console.log('post fail! ' + err);
+			}
+	},
+
+	function(res) {
+
+		console.log('get fail! ' + res);
+		console.log(res);
+
+	}
+
+	);
