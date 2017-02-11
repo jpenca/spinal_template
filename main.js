@@ -10,13 +10,10 @@ document.body.onload = () => {
 		let s = new Spinal()		
 		s.get ('kit.x', r => {
 
+			console.log(r)
 
 			let kit = r['kit.x']
-
-			console.log(kit)
-			
 			kit.name = "hello world"
-			
 			
 			s.post(kit, r => {
 				console.log('success!')
